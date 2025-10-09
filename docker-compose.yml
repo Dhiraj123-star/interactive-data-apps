@@ -1,9 +1,13 @@
+version: '3.9'
 
 services:
   basic-dashboard:
     build: .
     container_name: basic_sales_dashboard
-    command: streamlit run dashboard_basic.py --server.address=0.0.0.0 --server.port=8501
+    command: >
+      streamlit run dashboard_basic.py
+      --server.address=0.0.0.0
+      --server.port=8501
     ports:
       - "8501:8501"
     restart: unless-stopped
@@ -11,7 +15,10 @@ services:
   plotly-dashboard:
     build: .
     container_name: plotly_sales_dashboard
-    command: streamlit run dashboard_plotly.py --server.address=0.0.0.0 --server.port=8502
+    command: >
+      streamlit run dashboard_plotly.py
+      --server.address=0.0.0.0
+      --server.port=8502
     ports:
       - "8502:8502"
     restart: unless-stopped
