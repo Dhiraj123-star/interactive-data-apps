@@ -43,9 +43,9 @@ It dynamically generates sample datasets, allowing users to visualize trends, co
 
 1. The app generates a **synthetic dataset** with:
 
-   * Date range of 100 days
-   * Randomized sales values
-   * Regional and product categories
+   * Date range of 100 days  
+   * Randomized sales values  
+   * Regional and product categories  
 
 2. Users can **filter results** through the sidebar by Region and Product.
 
@@ -55,30 +55,52 @@ It dynamically generates sample datasets, allowing users to visualize trends, co
 
 ## 🧰 Technology Stack
 
-* **Streamlit** – Interactive web application framework
-* **Pandas** – Data manipulation and analysis
-* **NumPy** – Data generation and numerical operations
-* **Plotly** – Interactive and dynamic visualizations
+* **Streamlit** – Interactive web application framework  
+* **Pandas** – Data manipulation and analysis  
+* **NumPy** – Data generation and numerical operations  
+* **Plotly** – Interactive and dynamic visualizations  
+* **Docker** – Containerization and environment consistency  
+* **Docker Compose** – Multi-container orchestration for dashboards  
+
+---
+
+## 🐳 Docker Features
+
+### 🧩 Dockerfile Enhancements
+
+* Added **production-ready multi-stage Dockerfile**
+* Ensures a **lightweight final image** with only essential dependencies
+* Automatically runs the Streamlit app on container startup
+* Uses Python 3.12 slim base image for better performance
+
+### ⚙️ Docker Compose Setup
+
+* Introduced **docker-compose.yml** for simplified container orchestration  
+* Runs **two Streamlit dashboards** — one basic and one Plotly-based  
+* Enables easy startup using a single command  
+* Exposes dashboards on **different ports** for parallel access and testing  
 
 ---
 
 ## ▶️ Getting Started
 
-### Prerequisites
-
-Ensure you have **Python 3.12+** and the required dependencies installed.
+### Run Locally (without Docker)
 
 ```bash
 pip install streamlit pandas numpy plotly
-```
+streamlit run dashboard_plotly.py
+````
 
-### Run the Application
+### Run with Docker Compose
 
 ```bash
-streamlit run dashboard_plotly.py
+docker compose up --build
 ```
 
-Then open [http://localhost:8501](http://localhost:8501) in your browser.
+Then open the dashboards in your browser:
+
+* Basic Dashboard → [http://localhost:8501](http://localhost:8501)
+* Plotly Dashboard → [http://localhost:8502](http://localhost:8502)
 
 ---
 
@@ -86,8 +108,8 @@ Then open [http://localhost:8501](http://localhost:8501) in your browser.
 
 * Rapid prototyping of interactive dashboards
 * Visualizing and analyzing sales data
-* Demonstrating **Streamlit + Plotly** integration
-* Learning modern data visualization techniques
+* Demonstrating **Streamlit + Plotly + Docker** integration
+* Learning modern data visualization and containerization techniques
 
 ---
 
@@ -96,3 +118,5 @@ Then open [http://localhost:8501](http://localhost:8501) in your browser.
 This project is licensed under the **MIT License** — you are free to use, modify, and distribute it.
 
 ---
+
+
